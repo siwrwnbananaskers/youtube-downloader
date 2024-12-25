@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2e5d34; /* Hijau tua */
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50; /* Hijau lebih terang */
+        }
+
+        .container {
+            margin-left: 220px; /* Menyisakan ruang untuk sidebar */
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0c04a; /* Kuning tua */
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Media Query untuk layar kecil (tablet, ponsel) */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: none;
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        /* Media Query untuk layar yang sangat kecil (ponsel) */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+
+        /* Media Query untuk layar sangat besar (desktop besar) */
+        @media (min-width: 1200px) {
+            .container {
+                margin-left: 250px;
+            }
+
+            .sidebar {
+                width: 250px;
+            }
+
+            .sidebar a {
+                padding: 15px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/">HOME</a>
+        <a href="/about">TENTANG</a>
+        <a href="/support">SUPPORT</a>
+    </div>
+    
+    <div class="container">
+        <div class="logo"></div>
+        <h1>Tentang Kami</h1>
+        <p>HalalDownloader adalah platform yang menyediakan layanan download dan konversi konten
+            dari berbagai platform media sosial, seperti Facebook, Instagram, dan YouTube,
+            dengan memastikan setiap prosesnya sesuai dengan prinsip-prinsip syariah.
+            Kami memahami pentingnya menjaga kehalalan dalam setiap aspek kehidupan,
+            termasuk dalam mengakses dan mendistribusikan konten digital. Dengan HalalDownloader,
+            Anda dapat menikmati layanan yang aman, berkualitas, dan bebas dari hal-hal yang meragukan.</p>
+        <p>Download Aman Sesuai Syariah.</p>
+    </div>
+</body>
+</html>

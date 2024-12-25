@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2e5d34; /* Hijau tua */
+            position: fixed;
+            height: 100%;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50; /* Hijau lebih terang */
+        }
+
+        .container {
+            margin-left: 220px; /* Menyisakan ruang untuk sidebar */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0c04a; /* Kuning tua */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center; /* Membuat teks rata tengah */
+        }
+
+        textarea {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Media Query untuk layar kecil */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            textarea {
+                width: 90%; /* Lebih kecil untuk layar kecil */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 18px;
+            }
+
+            input[type="submit"] {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/">HOME</a>
+        <a href="/about">TENTANG</a>
+        <a href="/support">SUPPORT</a>
+    </div>
+    
+    <div class="container">
+        <div class="logo">HALAL DOWNLOADER</div>
+        <h1>Support</h1>
+        <p>Jika Anda memiliki pertanyaan atau umpan balik, silakan isi formulir di bawah ini:</p>
+        <form action="/feedback" method="post">
+            <textarea name="feedback" rows="4" placeholder="Masukkan umpan balik Anda..." required></textarea>
+            <input type="submit" value="Kirim Umpan Balik">
+        </form>
+    </div>
+</body>
+</html>

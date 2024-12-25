@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2e5d34; /* Dark green */
+            position: fixed;
+            height: 100%;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50; /* Lighter green */
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0c04a; /* Dark yellow */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .downloads {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        /* Flash message style */
+        .flashes {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .flashes li {
+            list-style: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .flashes .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+
+        .flashes .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+            }
+
+            .container {
+                margin-left: 160px;
+            }
+
+            input[type="text"] {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100px;
+            }
+
+            .container {
+                margin-left: 110px;
+                padding: 10px;
+            }
+
+            input[type="text"] {
+                width: 90%;
+            }
+
+            input[type="submit"] {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/">HOME</a>
+        <a href="/about">TENTANG</a>
+        <a href="/support">SUPPORT</a>
+    </div>
+    
+    <div class="container">
+        <div class="logo"></div>
+        <h1>YouTube Downloader</h1>
+        
+        <!-- Flash messages for feedback -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Form for downloading YouTube content -->
+        <form action="/download" method="post">
+            <input type="text" name="url" placeholder="Masukkan URL YouTube" required>
+            <label>
+                <input type="radio" name="download_type" value="mp4" required> MP4
+            </label>
+            <label>
+                <input type="radio" name="download_type" value="mp3" required> MP3
+            </label>
+            <input type="submit" value="Download">
+        </form>
+
+        <div class="downloads">
+            {% if download_status %}
+                <div class="{{ download_status.class }}">{{ download_status.message }}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

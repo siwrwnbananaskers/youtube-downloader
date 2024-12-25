@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Resolusi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2e5d34; /* Dark green */
+            position: fixed;
+            height: 100%;
+            padding-top: 20px;
+            transition: width 0.3s;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #4CAF50; /* Lighter green */
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #f0c04a; /* Dark yellow */
+            margin-bottom: 20px;
+        }
+
+        .resolution-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .resolution-item {
+            margin: 10px 0;
+        }
+
+        button {
+            text-decoration: none;
+            color: white;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 150px;
+            }
+
+            .container {
+                margin-left: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100px;
+            }
+
+            .container {
+                margin-left: 110px;
+                padding: 10px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/">HOME</a>
+        <a href="/about">TENTANG</a>
+        <a href="/support">SUPPORT</a>
+    </div>
+    
+    <div class="container">
+        <div class="logo">HALAL DOWNLOADER</div>
+        <h1>Pilih Resolusi</h1>
+        <ul class="resolution-list">
+            {% for resolution in resolutions %}
+            <li class="resolution-item">
+                <form action="/download_video" method="POST">
+                    <input type="hidden" name="url" value="{{ url }}">
+                    <input type="hidden" name="format_id" value="{{ resolution.format_id }}">
+                    <button type="submit">{{ resolution.format_note }} ({{ resolution.height }}p)</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="error">
+            {% if error_message %}
+                {{ error_message }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
