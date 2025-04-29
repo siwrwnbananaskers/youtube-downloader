@@ -11,8 +11,6 @@ YouTube Downloader
 
 ## 🛠️ Teknologi yang Digunakan
 
-> (Disesuaikan tergantung isi file, silakan konfirmasi jika ingin saya cek lebih rinci)
-
 - **Backend**: Python (Flask) / PHP Native
 - **Library**: `pytube` / `youtube_dl`
 - **Frontend**: HTML, CSS (Bootstrap / Custom), JavaScript
